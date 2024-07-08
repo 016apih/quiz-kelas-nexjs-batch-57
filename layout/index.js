@@ -1,9 +1,12 @@
 import Head from "next/head";
 
+import { Box, Container, Flex } from "@chakra-ui/react";
+
 import Header from "./header";
 import Footer from "./footer";
 
-const Layout = ({ children, metaTitle, metaDescription }) => {
+const Layout = ({ children, metaTitle='Sanberdaly', metaDescription='Sanberdaly', width }) => {
+
    return (
       <div>
          <Head>
@@ -13,9 +16,17 @@ const Layout = ({ children, metaTitle, metaDescription }) => {
             <link rel="icon" href="/favicon.ico" />
          </Head>
 
-         <Header />
-         {children}
-         <Footer />
+         <Container width="full" centerContent>
+            <Flex direction="column" bg="whiteAlpha.900" width={width}>
+               <Header />
+               <Box height="85vh" overflow="scroll" padding="2" position="relative">
+                  {children}
+               </Box>
+               
+               <Footer />
+            </Flex>
+         </Container>
+         
       </div>
    )
 }

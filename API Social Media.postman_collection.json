@@ -1,0 +1,707 @@
+{
+	"info": {
+		"_postman_id": "436acebc-fed4-4a78-8c8f-7e700ad769ca",
+		"name": "API Social Media",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3638594"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"akmal\",\n    \"email\": \"akmal@gmail.com\",\n    \"password\": \"12345\",\n    \"dob\": \"\",\n    \"phone\": \"\",\n    \"hobby\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/register",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"rehan@mail.com\",\n    \"password\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/login",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiNDdjMWVkYmU4ZDExZTQ0MmJjNmFjYWM3OTQ3MDkyODFkYjU3YmM5ZjUxODU1MTJkZTk3MmY0NjZjMjQzNTA2MDFjYWZiZmZjZDdkMjJmNzkiLCJpYXQiOjE3MTc4NTIxNTYuNzgyOTU4LCJuYmYiOjE3MTc4NTIxNTYuNzgyOTYyLCJleHAiOjE3MTc5Mzg1NTYuMjIwMDM1LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.ZwZ2f0pJaGTxGwaQkf2t-W1o2HqwsGub3A2uwuKxemyTBvAn5pD1xBHpUNwtZwGKpzv-Jl-E69rihgyxTo87npxOMs9O1WswK7bllpmdmQz241MSbX5j33Gzx_PS90yHtQPFE-lHtDu0K1lqx9qsw83rhR3ExssqTvIyN4YEKF2se_7vYaI1CsTJDWOjDL9h9TnzIvaHF3sc7ECNli2JJzr1Pvic05kiU4lUXDBFnFL-kjV443XK0OYXWYJZ8CxKNMxP1Zd1bM-uJ3hqDmFYZt1zgj8NJ0ymGrnj-59a-GgvG24PWlkDk9r3ns9Z9WPw9gOyPHvNjgELFg6MWU-4eqiyQXZvnHB0CLDwx0RXrFiIyTpppy4nq0m3qiphuO8WdNLa_Gx5cQZ1AkSQ8S0q6x8HEwjd-jJfWV-glYTKj-lR3Rc96WjUU8om2KXq8gc_tgzLd5TrG83KyUCgaZ-RySfHYjxUZFxSbu5Ed0kWBTzNoNWLFxz5NZfUp6HMNGHLKFfTSOi3PmCRJncf_g22uniIzC7kpAMohUQylYBji5AV8pMjkc6vWQhr5f-Yq4fMi1exHQW7a3_1Fv1MMrH0o8EBL0J_4kbUD0c8H1N3w3Yheqs1frssF_0aEtKRojx82-B193cLyE5HeUBDMlDSaC3ACk_Lmpal2V7I7c0txRQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"umar@gmail.com\",\n    \"password\": \"umar\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/user/me",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTQzY2RkMTBjM2E5MzVlNGI0NGRjZTJhZTZhMmRkYjBiYmQwZmMwMTk0ZjgwMTM2NGNjMmMxZTk2MDVjOGZkNzQ5MDQwZDIyNDcyODE1MzIiLCJpYXQiOjE2OTQzNzYwNTcuNTA0ODcxLCJuYmYiOjE2OTQzNzYwNTcuNTA0ODcyLCJleHAiOjE2OTQ0NjI0NTcuNTAxOTc2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.3pYBntra8YlOLNe9dYamL-uXA5-K5fhl27k5THyEJqbLZu02sqCK5vea5nk006SM8E3itqVF1Ba4ma6DRXZc-lEU1X1cdNq1hK1FOJERXoC3w1I78DkymnVaePX00P7Ocho6fDBIH6gIWe-me_F_15yiFsxhEpDsgZc55lWNm8QEDdWrKj4Ed_PnfJCmJYGO7-7dULUldw8yrpIyUIC_tzbDWsjjy-EH7JmMKj1Qaik5oO1o_hDyXutZjdpI7pB3vhiAz_gl1qbzapWoS0ehYoXWFo7IWgRccJnf-jP95e_J5Hm9Usr6nt4Hlc-tlGe-KhQZcYMVLWoSAHS6AWYCMbtS4G-KovG-t9FtNmpYapa91Xg65VnklH7EYy_Mhays-6d1dzJVDIntOAwIPQDuQ-14ZI4CBXW0N9V7V8icQ12UKzkheUKUUcoyglq2DWs4OX5RaXNuh8yErJab4wIbv6Scd9ArBDRa7n4m3Ofsc5C1trMMjQI94vIIkzVHMA7p7X7hG1WW9l0ShnmiEnpJNjCucF6H8pvsh3RtjtDaFyWOo4f_dLUTtf6CiWHUkaYGjJq-2VH1SK_QmjRan4pUVj8uDgS1MbZpoSdEXlDTHXaH-Agx5FbjElb7z77SV09DLa2QyoVVwZu6Y3B7_JWjL7IKkNQnK44-dCifcTyExf0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/logout",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Create Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDJiNmY2MWUzYWYwOTljMDQyY2JhNmQzNmNkYTg4N2E3NjJjZTk1MTNjZWU0MDkzZWU3NGIyNTYyMDhlZGRiZDE1M2RjNjI4YTk1NzM0NTgiLCJpYXQiOjE3MDcxNDA3OTUuMTc1MjA3LCJuYmYiOjE3MDcxNDA3OTUuMTc1MjExLCJleHAiOjE3MDcyMjcxOTUuMTY3NzQ5LCJzdWIiOiIxMzgiLCJzY29wZXMiOltdfQ.iDvqTmKqwC6ZD49XdaPhUd2oGms1RkFVqxZUbGipcXPcdN5D0xcfFU7Cn1Quq4CM86wWgTzb331VqPuV6rwlKl7wdHzHXfySA_Kl7JA_xqr6Kj3cmWYcPOjVLGTOeXZGmPr5D2HsaVM3-drSIiUijPa-lIL8M-jthT04vYfklDKyTiik4gTl8FOVEa28EDZER4KrGJEIAexefJszQF_Gn6i3SP8mRow0Z03TXGfA5wy4nqeG8EN50VfxRMtLM8cF9GgubcQ3rmUhDSaTTmmKixAMuWT5S3RwiiDEgi-_W67yOVrQIfvhCImIPK3Cl8mrlknZuKkDd-HUErbU1GWyKnv6m9xQDOrzx1mm-CSUk659GgV1-V103-FWb2QnWw88lDoffD7WaP_hqEVlF73BKr7z6rKh8XlqweG0yE3AgVO05sa3y5EzA-x-HKxqviiSzBgdJ4GXSAgXcFMyecFhIUVyNPd7zqyW4zrXbdyrMHxB-7iCXZ_oAmMshFPcCVoV_FVUy6pGLQmaPvnuy2RV2BSiCD_0sj_KC-falpl2gi6kJAAojc-gKMv5iWyysWOTJ99T-FWRFklYJKZlTpUXwQ5-rcd3f69NrSDxQpV3XTj0te6S3MHTAkihRYkFkZTorv2T1pJC-mb_GDAdv4PQBbfgq6i5GcTkpB2DZPCVIb0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Selamat ulang tahun brother\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/post",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDJiNmY2MWUzYWYwOTljMDQyY2JhNmQzNmNkYTg4N2E3NjJjZTk1MTNjZWU0MDkzZWU3NGIyNTYyMDhlZGRiZDE1M2RjNjI4YTk1NzM0NTgiLCJpYXQiOjE3MDcxNDA3OTUuMTc1MjA3LCJuYmYiOjE3MDcxNDA3OTUuMTc1MjExLCJleHAiOjE3MDcyMjcxOTUuMTY3NzQ5LCJzdWIiOiIxMzgiLCJzY29wZXMiOltdfQ.iDvqTmKqwC6ZD49XdaPhUd2oGms1RkFVqxZUbGipcXPcdN5D0xcfFU7Cn1Quq4CM86wWgTzb331VqPuV6rwlKl7wdHzHXfySA_Kl7JA_xqr6Kj3cmWYcPOjVLGTOeXZGmPr5D2HsaVM3-drSIiUijPa-lIL8M-jthT04vYfklDKyTiik4gTl8FOVEa28EDZER4KrGJEIAexefJszQF_Gn6i3SP8mRow0Z03TXGfA5wy4nqeG8EN50VfxRMtLM8cF9GgubcQ3rmUhDSaTTmmKixAMuWT5S3RwiiDEgi-_W67yOVrQIfvhCImIPK3Cl8mrlknZuKkDd-HUErbU1GWyKnv6m9xQDOrzx1mm-CSUk659GgV1-V103-FWb2QnWw88lDoffD7WaP_hqEVlF73BKr7z6rKh8XlqweG0yE3AgVO05sa3y5EzA-x-HKxqviiSzBgdJ4GXSAgXcFMyecFhIUVyNPd7zqyW4zrXbdyrMHxB-7iCXZ_oAmMshFPcCVoV_FVUy6pGLQmaPvnuy2RV2BSiCD_0sj_KC-falpl2gi6kJAAojc-gKMv5iWyysWOTJ99T-FWRFklYJKZlTpUXwQ5-rcd3f69NrSDxQpV3XTj0te6S3MHTAkihRYkFkZTorv2T1pJC-mb_GDAdv4PQBbfgq6i5GcTkpB2DZPCVIb0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Alhamdulillah akhirnya kelar juga brooooo!!!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/post/update/255",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"post",
+								"update",
+								"255"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZGZhM2QyOGIxY2MzY2IzOTJjZTA4YWNkZjExMTFmOWM3MzRiMTU4ZGY2M2U1YzhmYzJlNWY5YTEwYWU4M2IyMDY3MWE1OTBiM2IzY2VkMzgiLCJpYXQiOjE2OTQzNzYzNzkuODAyOTgxLCJuYmYiOjE2OTQzNzYzNzkuODAyOTgyLCJleHAiOjE2OTQ0NjI3NzkuODAxNzcyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Q09denotvTsokjiPi_rcfb33SyQEJcJ8ZD2tdiT5DKlaeuSgPtnz1oIys-7AhaDdwtnETGL6Ql0nsLNy7uSE8xEqX7GmRyTms67e60WkJAofLDqdqOkbT_0Ibn7OW6Mgqzl1ZjQlLYvJeSQTgAXJLykDlto3aMeGGAs2538NT5X5L6DxumfQ_a4uQ5A89OV24lSPVoFhDkjeVtShOx52oGRoPBR-hM_wztI0Y8DSqkY2uka8S0NjCM2QLRAtKClyR3xsda3BX_5WGf51B4AzkQMyxkjezdUOtYMmtUnvTewePBHM26JD2DHVrnMW3Ro3EA08FADzAyTdtkC5_lt8FzO-uHRwr-PfuX2zXLP9rAexNtwKaEX5li3wnrFXZ6E418GZfXRkbsTekfNrLZQqGLB0aNQd2VzVmK6pPQy1T--_2ZHUSqJoKqCr_R5XP9jj3ktuONFScXXF_DbvcsFyVhZiS1zuHAmTrhMHNjmAhPtUaGAAy_V47p7mm-4NDMffYSKlUoZLvckhq3MGdZwFmneEflNK6P2jstVtEfy15lTgKSAkXPwi-oU_8AQzLLl0c5zP_sfllKM9-kmzPFF9WPgwxI9wdFKogJPywmg-g_fipYlHL1PCehv6JuIV_bgih8HLRrz1t-giOzkmXHggJnpGR1QVJETeRdcGxP5FoZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/post/delete/1",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"post",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Posts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGNiZDRkZTkxY2ZiYjk4NDUwNTNhNzRhNWY4NjA2M2VlZWE4MmZkMWRhYzA0N2JhN2Y5YWUwNjAyNTUyYWU2MDRmYzM4NWQ2NWU3Y2Q3NGMiLCJpYXQiOjE3MDczOTYyOTUuNzY2NDE3LCJuYmYiOjE3MDczOTYyOTUuNzY2NDIyLCJleHAiOjE3MDc0ODI2OTUuNzU5NzE4LCJzdWIiOiIxNDkiLCJzY29wZXMiOltdfQ.mPKntcfZk4H39ne6IU314XXHpMRXRImqZCSyFXj7vji7k442G_hzrT0n68XqJqZL7Tu6iJBDmRdiniyFBBbY8nFZRgqjlu06iydp4NVdM3PG-h35au_Uou0EtD7fP7jQClmGB2wz8c_s4DHcvRiv4yM9MazRBoPRQWvkPKaNMoDvgv8C_tCRXONWU6vJ7afP8GQSSC2RlR7nL0qnSL0d_V5C327USEEUnCn2-SMRrMmSEYDIci4P9Or3RrVtvKwg7eRHkH84Oaks9u5TWmqMkUtrrhd6hIl_ZtkhSCugnQ3z87hpWaE_xk3gGT_BszPwTf-AprxtP-ZX1HT2xM-BzIF3vAY5YPx7ZhtKkgIAl0sfSvtdVQ26s1JZM_n5WlTa3CUPDJA5eG4K7gadcTyLUaLyHnhShfP7DwW4nWMQXTNqEFuS9g8L7pZo2wA3pKTx71cID_JzZ_XC1HuJ_viYJjCalW8yFQFQ0xUNG1rfzcwm5yJSrsrZ-GxXpkUOUN9dNCW4TnmA-u4EI-A4WB9hL-sBo9JACAcN6lksUBHIUrOpdc818vgbnj6lP-6IcbpSAIwB75MBStdHKANbx6hghEU9B8lweVEZoZLtHVuqAGsNDOoKyXweCnFCIw-oi3_xnNntaWOwPFLKg4uRDl51RiwNzPtHFa_tJ4HrSrY_79Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Gile, hari ini panas banget 😆\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/posts?type=all",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"posts"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "all"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNmFjZWM4MzIwN2MzYmU3NmM0OTg5NzVlZDcyNWQwZjdmYzEyMDhiY2E0MjVhMzIwNWIyYzQ2ZDcxODc5MDc3YWFlMGEyMzE2NTFkNDFkMWUiLCJpYXQiOjE2OTQzNDE5NDUuMTAxMjQ3LCJuYmYiOjE2OTQzNDE5NDUuMTAxMjQ4LCJleHAiOjE2OTQ0MjgzNDUuMDk0NDkxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.4a7THl_uvweuiTaetNh7csWaxx972U4F6s6NwWAqJdsrJwLjci8EoWbGWaAW0jG7yka7qVoLuCktRrM8zWE6xRf6vtAq1FR4BvPRlQlHh75wZPGQSGSRoh3-Ut9V29nxm8FhxNWXvIbBu3PLVVU5PJ8iDwfl-PEuFzAuWJWKtTtymYKZHoFytVWW3pxkrtL95ILxmPMTNMD8aCiV4fmiPcQ3wuuUKim02ctNpddwcKRljacgOuCBKIad09yQr4AcJd2bZZI7KLVK4QRfuLYGXtUG23JXzDJ67x_3_slURQXca1aCxzop0Lr4oNI14Y1dmU_4ywoGUJb17QL4CAS0UsNTonA3S32isFFvBrPdwjaeU6O3DDLLn0kjaTRTw9_pmmJEZWkzWXNVrT819vpmzvzSv2QQpPLbhLzcSN22AOmEm38qr7LYdu7gDN-EdXsjrJdmNc2tex_j3HVAyRp-CJYNCdUMd8qIww3mfO-BpODxx0jybUhHdAgn7BD6IpcEM1BeOQWLVX_9xsK433-_tSiBIhbUueVz3Jl4AclC38UuezUfrKdtSe7h6P8ffLCeeEcAkdy8k9U5obRSsneZ7WcNbcozIHcjeuqR1GQEiR9lxCyE0Bt2ECugfmFseSzkfBmhSGyMXZcQOO7YVo7w9UUI0SqJoJhp5GMIN6jbHw8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Gile, hari ini panas banget 😆\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/post/2",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"post",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Likes",
+			"item": [
+				{
+					"name": "Likes By Post ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGNiZDRkZTkxY2ZiYjk4NDUwNTNhNzRhNWY4NjA2M2VlZWE4MmZkMWRhYzA0N2JhN2Y5YWUwNjAyNTUyYWU2MDRmYzM4NWQ2NWU3Y2Q3NGMiLCJpYXQiOjE3MDczOTYyOTUuNzY2NDE3LCJuYmYiOjE3MDczOTYyOTUuNzY2NDIyLCJleHAiOjE3MDc0ODI2OTUuNzU5NzE4LCJzdWIiOiIxNDkiLCJzY29wZXMiOltdfQ.mPKntcfZk4H39ne6IU314XXHpMRXRImqZCSyFXj7vji7k442G_hzrT0n68XqJqZL7Tu6iJBDmRdiniyFBBbY8nFZRgqjlu06iydp4NVdM3PG-h35au_Uou0EtD7fP7jQClmGB2wz8c_s4DHcvRiv4yM9MazRBoPRQWvkPKaNMoDvgv8C_tCRXONWU6vJ7afP8GQSSC2RlR7nL0qnSL0d_V5C327USEEUnCn2-SMRrMmSEYDIci4P9Or3RrVtvKwg7eRHkH84Oaks9u5TWmqMkUtrrhd6hIl_ZtkhSCugnQ3z87hpWaE_xk3gGT_BszPwTf-AprxtP-ZX1HT2xM-BzIF3vAY5YPx7ZhtKkgIAl0sfSvtdVQ26s1JZM_n5WlTa3CUPDJA5eG4K7gadcTyLUaLyHnhShfP7DwW4nWMQXTNqEFuS9g8L7pZo2wA3pKTx71cID_JzZ_XC1HuJ_viYJjCalW8yFQFQ0xUNG1rfzcwm5yJSrsrZ-GxXpkUOUN9dNCW4TnmA-u4EI-A4WB9hL-sBo9JACAcN6lksUBHIUrOpdc818vgbnj6lP-6IcbpSAIwB75MBStdHKANbx6hghEU9B8lweVEZoZLtHVuqAGsNDOoKyXweCnFCIw-oi3_xnNntaWOwPFLKg4uRDl51RiwNzPtHFa_tJ4HrSrY_79Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"posts_id\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/likes/post/255",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"likes",
+								"post",
+								"255"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Likes By Post ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZDJhZmRmNzhkOGJkN2NhMzlmMTQ4NTQ3ZDNjODQ2YmQ3M2VkZWQ4ZjhmNGE1N2E4YjBhM2ZlNmU2NjE1NzdiOTRiNDM2YWZmODY3YjQ3MWUiLCJpYXQiOjE2OTQ4ODUwMzguMjg1MjIzLCJuYmYiOjE2OTQ4ODUwMzguMjg1MjI1LCJleHAiOjE2OTQ5NzE0MzguMjc3MjQ5LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.HMOW4hkgn6x_CfpivRxV_0pR5wKs_q7hYQ5SB4nA_VsA8WY3hcd_RKg0RkzhwgAwsqagsRGJmBDAE6cQU-iNz0QLv8A3MAcu_Id07JC2dOvpyVTcWNzDCK5uGnzC4r7iG0d6vsGRBmnwfUqX-6Bocl6u7UFhGlSXdUnlfWV1QSM_9gA-C_51aQMR4S3OG5BuKUhK0l8EWrtVYrB0ZBSoudDT6ZTBGFpMD8rM8piP8MzmSMhYtPTJDCQwLjJNx2OdodFurEg5zQqMXFC5JGQ14DEdwCN2YeSlIDqGkItJcXEMqEfxoLC5-HgFOjCCj4evy_L_szyKtKaUIAO7a9tJj6saInwzqm4i67TpKKr9q0hsGF6pTHPJqmF6o4Cdw-zSPbHmAEBoqx_QvFr0zLQuzjj7blPde3YpoE6XeK5hPRuXUGJl_-i8unwzqerhK6yxNl2GBc9QK-ozoJoE4xxqp_p04TLtdD80fLgvc9QhO6lcpEnpozoZmR0rO7QEllKeKUVY_OscecCx-lA7T3zPN166Vy-b_ByLV0fhDTaJfIOvGVRWgBx9a5x_oZC7P19jOhlh77AVWvor9KlUpPTIA6e3EiSJDqXGvyk0N216B66cR4pjzuqNQmU8E7b6vyAXJr3lwyTK_vx5mYXVKENs3EA0lFVRUc2qSItEFZqCeeY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/likes/post/1",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"likes",
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unlikes By Post ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODE5Y2ZlNTM3YmJhYjZkOTg1NGQxOTk0ZTU3YzIxM2Y2NzM0N2RjMDBiNjkzMDVjM2IzZWIzYjk3ZDc3NzJlZDNkMjA2YjM0OGQ3NmRkZGYiLCJpYXQiOjE2OTQzNDQ4NzUuNjQxMTk1LCJuYmYiOjE2OTQzNDQ4NzUuNjQxMTk2LCJleHAiOjE2OTQ0MzEyNzUuNjM4OTYyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.m7vEScnKHje3Sa-UyMR2YjuekP8MMYXBVqgqGK5rjBcSxdsJ9Q539qa9To6ActPaZevh_PMSQIFsHbWmFzA6SUB2rqeY1yck_mHbp86q6UzZfjWlGn8AYXnors6svNF8q6IrD2sHuaGX-HeRoi0WnxSPpdkyPotzDhFgartQ-G3ELiKtFZ1tBGxT1lHfYGLO784r3WYe08wsoiPEJvun5hGV1fzUj1uVl193k8weGslY0pzJ5ytJHyzSn0cL5vWHX82AFki4I4nzJ5JwQmtVABrhiGjnR_rInSFboUCCmV2Wvy1w1Mbv6Q9_dPBQDg-N_DhJD4Bkt8oR6S7j8qqy64xhH4Wrr9ArhuPZD6avikds0MSlEcNnXg7CqUYYsIb0mo_OBU8p3PyVcE08W8oq-GYEtMGngCusRx99MTWzEtYlTCLBUyCxGX3HaOXkhUeXvyVIFN1tFBuYIpZoFSYv-DKDXq81EyQQLe-aLpcmnRiLWUUSGHpcRywGtszvf0ypC_yfYzI48u19nimxbJmMGj16UFAaws615e0grJZ8xI3vs0zNXi2XktecPROmPI0rbL2WfIv9kCrtW2Pgn8jwyk-N8So5sOylBeJGFcyw1tex-ayx0S5a5OV61OaLOT15DcPjey19Lc9BEG1NsZfG7OPRGA_F7CBhYK3fLLqDmTM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/unlikes/post/1",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"unlikes",
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Replies",
+			"item": [
+				{
+					"name": "Replies By Post ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZGZhM2QyOGIxY2MzY2IzOTJjZTA4YWNkZjExMTFmOWM3MzRiMTU4ZGY2M2U1YzhmYzJlNWY5YTEwYWU4M2IyMDY3MWE1OTBiM2IzY2VkMzgiLCJpYXQiOjE2OTQzNzYzNzkuODAyOTgxLCJuYmYiOjE2OTQzNzYzNzkuODAyOTgyLCJleHAiOjE2OTQ0NjI3NzkuODAxNzcyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Q09denotvTsokjiPi_rcfb33SyQEJcJ8ZD2tdiT5DKlaeuSgPtnz1oIys-7AhaDdwtnETGL6Ql0nsLNy7uSE8xEqX7GmRyTms67e60WkJAofLDqdqOkbT_0Ibn7OW6Mgqzl1ZjQlLYvJeSQTgAXJLykDlto3aMeGGAs2538NT5X5L6DxumfQ_a4uQ5A89OV24lSPVoFhDkjeVtShOx52oGRoPBR-hM_wztI0Y8DSqkY2uka8S0NjCM2QLRAtKClyR3xsda3BX_5WGf51B4AzkQMyxkjezdUOtYMmtUnvTewePBHM26JD2DHVrnMW3Ro3EA08FADzAyTdtkC5_lt8FzO-uHRwr-PfuX2zXLP9rAexNtwKaEX5li3wnrFXZ6E418GZfXRkbsTekfNrLZQqGLB0aNQd2VzVmK6pPQy1T--_2ZHUSqJoKqCr_R5XP9jj3ktuONFScXXF_DbvcsFyVhZiS1zuHAmTrhMHNjmAhPtUaGAAy_V47p7mm-4NDMffYSKlUoZLvckhq3MGdZwFmneEflNK6P2jstVtEfy15lTgKSAkXPwi-oU_8AQzLLl0c5zP_sfllKM9-kmzPFF9WPgwxI9wdFKogJPywmg-g_fipYlHL1PCehv6JuIV_bgih8HLRrz1t-giOzkmXHggJnpGR1QVJETeRdcGxP5FoZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"posts_id\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/replies/post/1",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"replies",
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Replies By Post ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZGZhM2QyOGIxY2MzY2IzOTJjZTA4YWNkZjExMTFmOWM3MzRiMTU4ZGY2M2U1YzhmYzJlNWY5YTEwYWU4M2IyMDY3MWE1OTBiM2IzY2VkMzgiLCJpYXQiOjE2OTQzNzYzNzkuODAyOTgxLCJuYmYiOjE2OTQzNzYzNzkuODAyOTgyLCJleHAiOjE2OTQ0NjI3NzkuODAxNzcyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Q09denotvTsokjiPi_rcfb33SyQEJcJ8ZD2tdiT5DKlaeuSgPtnz1oIys-7AhaDdwtnETGL6Ql0nsLNy7uSE8xEqX7GmRyTms67e60WkJAofLDqdqOkbT_0Ibn7OW6Mgqzl1ZjQlLYvJeSQTgAXJLykDlto3aMeGGAs2538NT5X5L6DxumfQ_a4uQ5A89OV24lSPVoFhDkjeVtShOx52oGRoPBR-hM_wztI0Y8DSqkY2uka8S0NjCM2QLRAtKClyR3xsda3BX_5WGf51B4AzkQMyxkjezdUOtYMmtUnvTewePBHM26JD2DHVrnMW3Ro3EA08FADzAyTdtkC5_lt8FzO-uHRwr-PfuX2zXLP9rAexNtwKaEX5li3wnrFXZ6E418GZfXRkbsTekfNrLZQqGLB0aNQd2VzVmK6pPQy1T--_2ZHUSqJoKqCr_R5XP9jj3ktuONFScXXF_DbvcsFyVhZiS1zuHAmTrhMHNjmAhPtUaGAAy_V47p7mm-4NDMffYSKlUoZLvckhq3MGdZwFmneEflNK6P2jstVtEfy15lTgKSAkXPwi-oU_8AQzLLl0c5zP_sfllKM9-kmzPFF9WPgwxI9wdFKogJPywmg-g_fipYlHL1PCehv6JuIV_bgih8HLRrz1t-giOzkmXHggJnpGR1QVJETeRdcGxP5FoZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"JUARAAA !!!!!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/replies/post/1",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"replies",
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Replies By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZGZhM2QyOGIxY2MzY2IzOTJjZTA4YWNkZjExMTFmOWM3MzRiMTU4ZGY2M2U1YzhmYzJlNWY5YTEwYWU4M2IyMDY3MWE1OTBiM2IzY2VkMzgiLCJpYXQiOjE2OTQzNzYzNzkuODAyOTgxLCJuYmYiOjE2OTQzNzYzNzkuODAyOTgyLCJleHAiOjE2OTQ0NjI3NzkuODAxNzcyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Q09denotvTsokjiPi_rcfb33SyQEJcJ8ZD2tdiT5DKlaeuSgPtnz1oIys-7AhaDdwtnETGL6Ql0nsLNy7uSE8xEqX7GmRyTms67e60WkJAofLDqdqOkbT_0Ibn7OW6Mgqzl1ZjQlLYvJeSQTgAXJLykDlto3aMeGGAs2538NT5X5L6DxumfQ_a4uQ5A89OV24lSPVoFhDkjeVtShOx52oGRoPBR-hM_wztI0Y8DSqkY2uka8S0NjCM2QLRAtKClyR3xsda3BX_5WGf51B4AzkQMyxkjezdUOtYMmtUnvTewePBHM26JD2DHVrnMW3Ro3EA08FADzAyTdtkC5_lt8FzO-uHRwr-PfuX2zXLP9rAexNtwKaEX5li3wnrFXZ6E418GZfXRkbsTekfNrLZQqGLB0aNQd2VzVmK6pPQy1T--_2ZHUSqJoKqCr_R5XP9jj3ktuONFScXXF_DbvcsFyVhZiS1zuHAmTrhMHNjmAhPtUaGAAy_V47p7mm-4NDMffYSKlUoZLvckhq3MGdZwFmneEflNK6P2jstVtEfy15lTgKSAkXPwi-oU_8AQzLLl0c5zP_sfllKM9-kmzPFF9WPgwxI9wdFKogJPywmg-g_fipYlHL1PCehv6JuIV_bgih8HLRrz1t-giOzkmXHggJnpGR1QVJETeRdcGxP5FoZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"gile lu ndo, keren parah wkwk\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/replies/delete/1",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"replies",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "All Notifications",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiZDVjNTZmZWE2YTI0MTMyMzhiY2RhMDg5NDc2YzlhZTg1NGE5YjFkNWFjMGE4NmMyNTI0NzE4NDBkMmZjN2RlZTk3YjgwZmM3MWJkMjVmZGEiLCJpYXQiOjE3MTc4NTM1MDcuMDU5NTE5LCJuYmYiOjE3MTc4NTM1MDcuMDU5NTI4LCJleHAiOjE3MTc5Mzk5MDYuODk4OTY2LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.O3q9LB-y09l8fkC5gzJv5aKT3Tze8IYYmNHfix8HDyyJBJjGN1195Z9D_Z-UBb9Yn9TsTMbyL1R4uvgmTc5byuViVH2csU9z94BXnTEUOVSRZA8qnfI5YjgKgdWKeSHB5_KvAR9J24aMTzzOGdpEJfzTqGzxCfwSOpIKtDuDaQFV_Pwjrz6N9GVXr4jmFEmHQbj8mBLD_F7ILK0uZeJBHlbRsjTpLpKuwwFzCmIRZMe3q4jMSMxsM7T5mOO7wbc1DlBp0bwnvaNXKTa_yZByfH3TE0moFdA9zDHbuqjYcIdj5tUMMb7oOE1v9ZrAs4eZyWd0dZeV7mFvfwACeJMNAe7I0ZMJhhV5wyQpa2kvlrOYtyRBZTgdHwGjkBwsol1ky5TtbOrOZJyOoQ7Vhei1zP8XWPnzcOEKamhVc_9ybN3wZI1549iKJZm-YN6j4cAJTcTlm0dSriidC-AzSbRVThJIgwhbBduELbo0IEbk2pytFnuCw5qtkVdmuKyZsol1QhdaSsD6ZJLXenMhAquxDoMwEl2hJ0A9P-i6eZjCPv8jPI0RqE_-EP1eaIWaYU6YR1tL3XrP4JEJi-98R1ElofmW_XsEYLst4Gxw_4VqOnSJvpYkqgCBQ4UH8FERAV_zU-pbfwQGmsH04kwvFbjKI0EDY6CppaOSUUmq7WRG6jk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"posts_id\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://service.pace-unv.cloud/api/notifications",
+							"protocol": "https",
+							"host": [
+								"service",
+								"pace-unv",
+								"cloud"
+							],
+							"path": [
+								"api",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
