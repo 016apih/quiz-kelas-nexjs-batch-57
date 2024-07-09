@@ -13,14 +13,35 @@ import {
 
 import CreatePost from './createPost';
 import SectionReplies from './sectionReplies';
+import useQueries from '@/hooks/useQueries';
 
 const ModalPost = ({ modal, setModal, formData, setFormData, onSubmit, replies, isLoadingReplies }) => {
    const initialRef = useRef(null);
    const finalRef = useRef(null);
+   const { useMutate } = useQueries();
 
    const onClose = () => {
       setModal({});
    };
+
+   const onEditReplies = async () => {
+      const resp = await useMutate({
+         prefixUrl: `/replies/post/${formData?.detail?.id}`,
+         method: 'POST',
+         payload: { description: formData?.description }
+      });
+      resp.success && modal?.fetchingReplies();
+      setFormData({ ...formData, description: '', detail: undefined })
+   }
+
+   const onActReplies = async (type, d) => {
+      if(type === 'delete'){
+         const resp = await useMutate({ prefixUrl: `/replies/delete/${d.id}`, method: 'DELETE' });
+         resp.success && modal?.fetchingReplies();
+      } else {
+         setFormData({ ...formData, description: d.description, detail: d })
+      }
+   }
 
    return (
       <Modal
@@ -49,7 +70,7 @@ const ModalPost = ({ modal, setModal, formData, setFormData, onSubmit, replies, 
                         textButton="Submit"
                         value={formData?.description}
                         onChange={description => setFormData(s => ({ ...s, description }) )}
-                        onCreate={onSubmit}
+                        onCreate={() => formData?.detail ? onEditReplies() : onSubmit()}
                         isLoading={modal?.isLoading}
                      />
                   }
@@ -58,6 +79,9 @@ const ModalPost = ({ modal, setModal, formData, setFormData, onSubmit, replies, 
                   <SectionReplies 
                      data={replies} 
                      loading={isLoadingReplies} 
+                     onClose={onClose}
+                     setFormData={setFormData}
+                     onActReplies={onActReplies}
                   />
                }
             </ModalBody>

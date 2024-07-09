@@ -1,17 +1,28 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Card, Text, Flex, Heading, CardBody, Avatar, Box } from '@chakra-ui/react';
 
 import { UserContext } from '@/context/userContextProvider';
+import useQueries from '@/hooks/useQueries';
 
-const CardProfile = () => {
+const CardProfile = ({ id }) => {
    const profile = useContext(UserContext);
+
+   const { data, fetchingData } = useQueries();
+
+   useEffect(() => {
+      const getProfile = async () => {
+         await fetchingData({ prefixUrl: `/user/${id}`})
+      }
+
+      id && getProfile();
+   }, [id])
 
    return (
       <Card my='2'>
          <CardBody>
             <Flex justify='center' alignItems='center' direction='column' mt='3' mb='5' >
-               <Avatar name={profile?.name} />
-               <Text>{profile?.name}</Text>
+               <Avatar name={data?.name || profile?.name} />
+               <Text>{data?.name || profile?.name}</Text>
             </Flex>
             <Flex justify='space-between'>
                <Box>
@@ -19,7 +30,7 @@ const CardProfile = () => {
                      Email
                   </Heading>
                   <Text size='sm'>
-                     {profile?.email}
+                     {data?.email || profile?.email}
                   </Text>
                </Box>
                <Box>
@@ -27,7 +38,7 @@ const CardProfile = () => {
                      Hobby
                   </Heading>
                   <Text size='sm'>
-                     {profile?.hobby ?? '-'}
+                     {data?.hobby || profile?.hobby}
                   </Text>
                </Box>
                <Box>
@@ -43,7 +54,7 @@ const CardProfile = () => {
                      Phone
                   </Heading>
                   <Text size='sm'>
-                     {profile?.phone ?? '-'}
+                     {data?.phone || profile?.phone}
                   </Text>
                </Box>
             </Flex>

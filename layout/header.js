@@ -41,7 +41,7 @@ const Header = () => {
                      <MenuButton
                         as={Button}
                         size="sm"
-                        leftIcon={<Avatar name={profile?.name || "AP"} size="xs" />}
+                        leftIcon={<Avatar name={profile?.name} size="xs" />}
                         rightIcon={<Icon as={IoChevronDownOutline} boxSize="5" />}
                      />
                      <MenuList zIndex="3">

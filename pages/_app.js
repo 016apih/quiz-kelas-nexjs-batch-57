@@ -21,14 +21,16 @@ export default function App({ Component, pageProps }) {
    }
 
    return <ChakraProvider>
-      <Layout width={width}>
          {isLogin ? 
             <UserContextProvider>
-               <Component {...pageProps} />
+               <Layout width={width}>
+                  <Component {...pageProps} />
+               </Layout>
             </UserContextProvider>
          :
-            <Component {...pageProps} />
+            <Layout width={width}>
+               <Component {...pageProps} />
+         </Layout>
          }
-      </Layout>
    </ChakraProvider>
 }

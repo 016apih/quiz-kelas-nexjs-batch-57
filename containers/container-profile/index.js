@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react';
-import { Box, Container, Show } from '@chakra-ui/react';
+import { useCallback, useState,useMemo } from 'react';
+import { Box, Container } from '@chakra-ui/react';
 
 import CreatePost from '@/components/post/createPost';
 import SectionPosts from '@/components/post/sectionPosts';
@@ -8,21 +8,21 @@ import useQueries from '@/hooks/useQueries';
 import ModalPost from '@/components/post/modalPost';
 import CardProfile from '@/components/profile/cardProfile';
 
-const ProfileContainer = () => {
+const ProfileContainer = ({ id }) => {
    const [formData, setFormData] = useState({ description: '' });
    const [modal, setModal] = useState({});
 
+   const prefixUrl = useMemo(() => id ? `/posts/${id}` : '/posts?type=me',[id]);
+
    const { data, isLoading, fetchingData, useMutate, isLoadingSubmit, } = useQueries({
-      prefixUrl: '/posts?type=me',
+      prefixUrl,
       withToastSuccess: true
    });
 
    const {
       data: repliesById,
       isLoading: isLoadingReplies,
-      fetchingData: fetchingReplies,
-      isLoadingSubmit: isLoadingSubmitReplies,
-      useMutate: useMutateReply,
+      fetchingData: fetchingReplies
    } = useQueries();
 
    const onChangeForm = useCallback((description) => {
@@ -31,14 +31,15 @@ const ProfileContainer = () => {
 
    const resetFormData = () => setFormData({ description: '' });
 
-
    const onShowModal = async (type, data) => {
       if(type === 'replies'){
-         await fetchingReplies({
-            prefixUrl: data ? `/replies/post/${data?.id}` : "",
-         });
+         await fetchingReplies({ prefixUrl: `/replies/post/${data.id}` });
          setFormData(s => ({ ...s, id: data?.id }))
-         setModal({ isOpen: true, type, replies: repliesById, isLoadingReplies });
+         setModal({ 
+            isOpen: true, type,
+            fetchingReplies: () => fetchingReplies({ prefixUrl: `/replies/post/${data?.id}` }),
+            replies: repliesById, isLoadingReplies, 
+         });
       } else {
          setFormData(data);
          setModal({ isOpen: true, type });
@@ -49,7 +50,7 @@ const ProfileContainer = () => {
       const response = await useMutate({ prefixUrl: "/post", payload: formData });
       if (response?.success) {
          resetFormData();
-         fetchingData({ prefixUrl: "/posts?type=me"});
+         fetchingData({ prefixUrl });
       }
    };
    
@@ -68,11 +69,11 @@ const ProfileContainer = () => {
          if(type === 'replies'){
             fetchingReplies({ prefixUrl: `/replies/post/${formData?.id}` });
             setFormData(s => ({ ...s, description: '' }));
-            fetchingData({ prefixUrl: "/posts?type=me"});
+            fetchingData({ prefixUrl });
          } else {
             setModal({});
             resetFormData();
-            fetchingData({ prefixUrl: "/posts?type=me"});
+            fetchingData({ prefixUrl });
          }
       }
    }
@@ -81,7 +82,7 @@ const ProfileContainer = () => {
       let type = d.is_like_post ? "/unlikes" : "/likes";
       const response = await useMutate({ prefixUrl: `${type}/post/${d?.id}` });
       if (response?.success) {
-         fetchingData({ prefixUrl: "/posts?type=me"});
+         fetchingData({ prefixUrl });
       }
    }
 
@@ -97,13 +98,13 @@ const ProfileContainer = () => {
             isLoadingReplies={isLoadingReplies}
          />
          <Box position='sticky' top='0' zIndex='2' mb='3'>
-            <CardProfile />
-            <CreatePost
+            <CardProfile id={id} />
+            {!id && <CreatePost
                value={formData?.description}
                isLoading={isLoadingSubmit}
                onChange={onChangeForm}
                onCreate={onCreate}
-            />
+            />}
          </Box>
 
          <SectionPosts

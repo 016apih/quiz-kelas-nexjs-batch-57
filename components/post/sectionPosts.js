@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 
 import CardPost from './cardPost';
-import EemptyPost from './emptyPost';
+import EmptyPost from './emptyPost';
 import LoadingPost from './loadingPost';
 
 const SectionPosts = ({ data=[], isLoading, onEdit, onDelete, onLike, onReplies }) => {
@@ -19,7 +19,7 @@ const SectionPosts = ({ data=[], isLoading, onEdit, onDelete, onLike, onReplies 
                { ...d }
             />
          ))}
-         {data?.length === 0 && !isLoading && <EemptyPost />}
+         {data?.length === 0 && !isLoading && <EmptyPost />}
          {isLoading && <LoadingPost />}
       </Box>
    )

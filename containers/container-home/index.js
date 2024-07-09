@@ -36,7 +36,9 @@ const HomeContainer = () => {
          await fetchingReplies({
             prefixUrl: data ? `/replies/post/${data?.id}` : "",
          });
-         setFormData(s => ({ ...s, id: data?.id }))
+         setFormData(s => ({ ...s, id: data?.id,
+            fetchingReplies: () => fetchingReplies({ prefixUrl: `/replies/post/${data?.id}` }),
+         }));
          setModal({ isOpen: true, type, replies: repliesById, isLoadingReplies });
       } else {
          setFormData(data);
@@ -112,8 +114,6 @@ const HomeContainer = () => {
             onReplies={(d) => onShowModal('replies', d)}
             isLoading={isLoading}
          />
-
-
       </Container>
    )
 }

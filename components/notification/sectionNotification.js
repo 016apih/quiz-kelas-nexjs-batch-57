@@ -4,7 +4,7 @@ import { IoNotificationsOutline } from "react-icons/io5";
 import { formatDistance } from "date-fns";
 
 import LoadingPost from "../post/loadingPost";
-import EemptyPost from "../post/emptyPost";
+import EmptyPost from "../post/emptyPost";
 
 const SectionNotification = ({ data, loading }) => {
    return (
@@ -43,7 +43,7 @@ const SectionNotification = ({ data, loading }) => {
                </Card>
             ))}
          {data?.length === 0 && !loading && (
-            <EemptyPost message="No Notifications" icon={IoNotificationsOutline} />
+            <EmptyPost msg="No Notifications" icon={IoNotificationsOutline} />
          )}
          {loading && <LoadingPost />}
       </Box>
