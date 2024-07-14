@@ -22,7 +22,7 @@ import { Avatar,
 
 const CardPost = ({ ...p }) => {
    return (
-      <Card marginBottom='3'>
+      <Card marginBottom='3' ref={p.ref}>
          <CardHeader>
             <Flex spacing='4'>
                <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>

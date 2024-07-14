@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import Head from "next/head";
 
 import { Box, Container, Flex } from "@chakra-ui/react";
@@ -6,6 +7,30 @@ import Header from "./header";
 import Footer from "./footer";
 
 const Layout = ({ children, metaTitle='Sanberdaly', metaDescription='Sanberdaly', width }) => {
+
+   const listRef = useRef(null);
+   
+   // const handleOnScroll = (e) => {
+   //    const { scrollTop, scrollHeight, offsetHeight } = e.target;
+
+   //    if (scrollTop > offsetHeight) {
+   //       console.log({ scrollTop, scrollHeight, offsetHeight })
+   //       // if (!filteredStocksOpt[filteredStocksOpt?.length - 1]?.isLastChild) {
+   //       //    onFilteredStock(filterType.all, keyword, {scroll: 'bottom'});
+   //       //    listRef.current?.scrollTo({
+   //       //       top: scrollTop - 56,
+   //       //       behavior: 'smooth',
+   //       //    });
+   //       // }
+   //       // if (scrollTop === 0 && !filteredStocksOpt[0]?.isFirstChild) {
+   //       //    onFilteredStock(filterType.all, keyword, {scroll: 'top'});
+   //       //    listRef.current?.scrollTo({
+   //       //       top: scrollTop + 100,
+   //       //       behavior: 'smooth',
+   //       //    });
+   //       // }
+   //    }
+   // };
 
    return (
       <div>
@@ -19,7 +44,10 @@ const Layout = ({ children, metaTitle='Sanberdaly', metaDescription='Sanberdaly'
          <Container width="full" centerContent>
             <Flex direction="column" bg="whiteAlpha.900" width={width}>
                <Header />
-               <Box height="85vh" overflow="scroll" padding="2" position="relative">
+               <Box height="85vh" overflow="scroll" padding="2" position="relative"
+                  // ref={listRef}
+                  // onScroll={handleOnScroll}
+               >
                   {children}
                </Box>
                
